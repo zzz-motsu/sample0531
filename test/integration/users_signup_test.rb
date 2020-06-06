@@ -11,11 +11,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password_confirmation: "bar" } }
     end
     assert_template 'users/new'
-    assert_template 'div#error_explanation'
-    assert_template 'div.alert'
-    assert_select 'div.alert-danger'
-end
-
+  end
+  
+  
   test "valid signup information" do
     get signup_path
     assert_difference 'User.count', 1 do
